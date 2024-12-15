@@ -8,7 +8,7 @@ LIBS=-lm
 _DEPS = neuralnet.h datasets.h
 DEPS = $(patsubst %,$(SDIR)/%, $(_DEPS))
 
-_OBJ = main.o
+_OBJ = main.o neuralnet.o
 OBJ = $(patsubst %,$(ODIR)/%, $(_OBJ))
 
 
