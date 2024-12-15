@@ -38,7 +38,9 @@ int main(int argc, char const *argv[])
         exit(1);
     }
 
+
     float (*dataset)[NUM_INPUTS + 1] = train_doubling; // +1 to accomodate the output
+    int num_samples = sizeof(train_doubling) / sizeof(train_doubling[0]);
 
     Neuralnet simple_nn = initialize_nn(NUM_LAYERS, NUM_NEURONS, NUM_INPUTS);
 
@@ -54,12 +56,29 @@ int main(int argc, char const *argv[])
     //         Neuron *neuron = &simple_nn.layers[i].neurons[j];
     //         for (size_t k = 0; k < neuron->num_weights; k++)
     //         {
-    //             y += neuron->w[k] * 
+    //             y += neuron->w[k] * dataset[][]
     //         }
             
     //     }
         
     // }
+
+    //mini forward prop with one neuron
+    //actually more like cost function
+    float cost = 0;
+    for (size_t i = 0; i < num_samples; i++)
+    {
+        Neuron *neuron = &simple_nn.layers[0].neurons[0];
+        float y = 0;
+        y += neuron->w[0] * dataset[i][0];
+        y += neuron->b;
+        float distance = y - dataset[i][1];
+        distance = distance * distance;
+        cost += distance;
+    }
+
+    printf("COST: %f\n", cost);
+    
     
 
     free_nn(&simple_nn);

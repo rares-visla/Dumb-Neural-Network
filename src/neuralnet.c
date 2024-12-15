@@ -6,7 +6,7 @@
 void *safe_malloc(size_t size);
 float rand_float();
 
-Neuralnet allocate_nn_memory(int num_layers, int num_neurons, int num_inputs)
+static Neuralnet allocate_nn_memory(int num_layers, int num_neurons, int num_inputs)
 {
     Neuralnet simple_nn;
     

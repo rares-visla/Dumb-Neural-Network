@@ -21,7 +21,7 @@ typedef struct Neuralnet
 
 
 //Allocate memory
-static Neuralnet allocate_nn_memory(int num_layers, int num_neurons, int num_inputs);
+// static Neuralnet allocate_nn_memory(int num_layers, int num_neurons, int num_inputs);
 
 //Allocate memory and initialize parameters to random floats
 Neuralnet initialize_nn(int num_layers, int num_neurons, int num_inputs);
