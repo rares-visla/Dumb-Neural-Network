@@ -5,10 +5,10 @@ ODIR=build
 
 LIBS=-lm
 
-_DEPS = test.h
+_DEPS = neuralnet.h datasets.h
 DEPS = $(patsubst %,$(SDIR)/%, $(_DEPS))
 
-_OBJ = main.o test.o
+_OBJ = main.o
 OBJ = $(patsubst %,$(ODIR)/%, $(_OBJ))
 
 
